@@ -5,7 +5,7 @@
 *              UDP server operation.
 *
 ********************************************************************************
-* Copyright 2022, Cypress Semiconductor Corporation (an Infineon company) or
+* Copyright 2022-2024, Cypress Semiconductor Corporation (an Infineon company) or
 * an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
 *
 * This software, including source code, documentation and related
@@ -57,17 +57,6 @@
 #define UDP_SERVER_MAX_PENDING_CONNECTIONS        (3)
 #define UDP_SERVER_RECV_TIMEOUT_MS                (500)
 
-/* Set to 1 to use static IP addressing for UDP server */
-#define ENABLE_STATIC_IP_ADDRESS (0u)
-
-#if ENABLE_STATIC_IP_ADDRESS
-/* Set the static IP address of the UDP server keeping the gateway
- * and subnet mask address same as that of UDP client
- */
-#define UDP_STATIC_IP_ADDR   MAKE_IPV4_ADDRESS( 192, 168, 1, 8 )
-#define UDP_STATIC_GATEWAY   MAKE_IPV4_ADDRESS( 192, 168, 1, 1 )
-#define UDP_NETMASK          MAKE_IPV4_ADDRESS( 255, 255, 255, 0 )
-#endif
 /*******************************************************************************
 * Function Prototypes
 ********************************************************************************/

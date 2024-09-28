@@ -1,10 +1,12 @@
+#!/usr/bin/env python
+
 #******************************************************************************
 # File Name:   udp_client.py
 #
 # Description: A simple python based UDP client.
-# 
+#
 #********************************************************************************
-# Copyright 2020-2022, Cypress Semiconductor Corporation (an Infineon company) or
+# Copyright 2020-2024, Cypress Semiconductor Corporation (an Infineon company) or
 # an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
 #
 # This software, including source code, documentation and related
@@ -34,20 +36,16 @@
 # including Cypress's product in a High Risk Product, the manufacturer
 # of such system or application assumes all risk of such use and in doing
 # so agrees to indemnify Cypress against all liability.
-#********************************************************************************
+#********************************************************************************/
 
-#!/usr/bin/env python
 import socket
 import optparse
-import time
-import sys
-
 
 BUFFER_SIZE = 1024
 
 # IP details for the UDP server
-DEFAULT_IP   = '192.168.1.8'     # IP address of the UDP server
-DEFAULT_PORT = 57345             # Port of the UDP server
+DEFAULT_IP   = '192.168.0.10'    # IP address of the UDP server
+DEFAULT_PORT = 50007             # Port of the UDP server
 
 START_MSG="A"
 
@@ -56,12 +54,12 @@ def udp_client( server_ip, server_port):
 	print("UDP Client")
 	print("================================================================================")
 	print("Sending data to UDP Server with IP Address:",server_ip, " Port:",server_port)
-    
+
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	s.sendto(bytes(START_MSG, "utf-8"), (server_ip, server_port))
-	
+
 	while True:
-		print("================================================================================")        
+		print("================================================================================")
 		data = s.recv(BUFFER_SIZE);
 		print("Command from Server:")
 		if data.decode('utf-8') == '0':
@@ -72,8 +70,8 @@ def udp_client( server_ip, server_port):
 			print("LED ON")
 			message = 'LED ON ACK'
 			s.sendto(message.encode('utf-8'), (server_ip, server_port))
-		print("Acknowledgement sent to server")        
-	
+		print("Acknowledgement sent to server")
+
 if __name__ == '__main__':
     parser = optparse.OptionParser()
     parser.add_option("-p", "--port", dest="port", type="int", default=DEFAULT_PORT, help="Port to listen on [default: %default].")
@@ -81,3 +79,5 @@ if __name__ == '__main__':
     (options, args) = parser.parse_args()
     #start udp client
     udp_client(options.hostname, options.port)
+
+# [] END OF FILE
