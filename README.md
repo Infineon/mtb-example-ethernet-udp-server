@@ -7,21 +7,21 @@ In this example, the UDP server waits for the UDP client to establish a connecti
 
 [View this README on GitHub.](https://github.com/Infineon/mtb-example-ethernet-udp-server)
 
-[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzU2MDAiLCJTcGVjIE51bWJlciI6IjAwMi0zNTYwMCIsIkRvYyBUaXRsZSI6IkV0aGVybmV0OiBVRFAgc2VydmVyIiwicmlkIjoia29vemhhbXBhcmFtIiwiRG9jIHZlcnNpb24iOiIyLjAuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJNQ0QiLCJEb2MgQlUiOiJJQ1ciLCJEb2MgRmFtaWx5IjoiUFNPQyJ9)
+[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzU2MDAiLCJTcGVjIE51bWJlciI6IjAwMi0zNTYwMCIsIkRvYyBUaXRsZSI6IkV0aGVybmV0OiBVRFAgc2VydmVyIiwicmlkIjoia29vemhhbXBhcmFtIiwiRG9jIHZlcnNpb24iOiIyLjEuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJNQ0QiLCJEb2MgQlUiOiJJQ1ciLCJEb2MgRmFtaWx5IjoiUFNPQyJ9)
 
 
 ## Requirements
 
-- [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) v3.2 or later (tested with v3.2)
+- [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) v3.2 or later (tested with v3.3)
 - Board support package (BSP) minimum required version: 5.0.0
 - Programming language: C
 - Other tools: Python v3.8.10
-- Associated parts: [XMC7000 MCU](https://www.infineon.com/cms/en/product/microcontroller/32-bit-industrial-microcontroller-based-on-arm-cortex-m/)
+- Associated parts: [XMC7000 MCU](https://www.infineon.com/cms/en/product/microcontroller/32-bit-industrial-microcontroller-based-on-arm-cortex-m/32-bit-xmc7000-industrial-microcontroller-arm-cortex-m7)
 
 
 ## Supported toolchains (make variable 'TOOLCHAIN')
 
-- GNU Arm&reg; Embedded Compiler v11.3.1 (`GCC_ARM`) - Default value of `TOOLCHAIN`
+- GNU Arm&reg; Embedded Compiler v11.3.1 (`GCC_ARM`) – Default value of `TOOLCHAIN`
 - Arm&reg; Compiler v6.22 (`ARM`)
 - IAR C/C++ Compiler v9.50.2 (`IAR`)
 
@@ -33,7 +33,6 @@ In this example, the UDP server waits for the UDP client to establish a connecti
 - [XMC7200 Evaluation Kit](https://www.infineon.com/KIT_XMC72_EVK) (`KIT_XMC72_EVK`) – Default value of `TARGET`
 - [XMC7200 Evaluation Kit](https://www.infineon.com/KIT_XMC72_EVK) (`KIT_XMC72_EVK_MUR_43439M2`)
 - [XMC7100 Evaluation Kit](https://www.infineon.com/KIT_XMC71_EVK_LITE_V1) (`KIT_XMC71_EVK_LITE_V1`)
-
 
 
 ## Hardware setup
@@ -67,7 +66,7 @@ The ModusToolbox&trade; tools package provides the Project Creator as both a GUI
 
    > **Note:** To use this code example for a kit not listed here, you may need to update the source files. If the kit does not have the required resources, the application may not work.
 
-3. On the **Select Application** page, do the following:
+3. On the **Select Application** page:
 
    a. Select the **Applications(s) Root Path** and the **Target IDE**.
 
@@ -90,12 +89,11 @@ The 'project-creator-cli' tool can be used to create applications from a CLI ter
 
 Use a CLI terminal to invoke the 'project-creator-cli' tool. On Windows, use the command-line 'modus-shell' program provided in the ModusToolbox&trade; installation instead of a standard Windows command-line application. This shell provides access to all ModusToolbox&trade; tools. You can access it by typing "modus-shell" in the search box in the Windows menu. In Linux and macOS, you can use any terminal application.
 
-The following example clones the "[Ethernet: UDP Server](https://github.com/Infineon/mtb-example-ethernet-udp-server)" application with the desired name "EthernetUDPServer" configured for the *KIT_XMC72_EVK* BSP into the specified working directory, *C:/mtb_projects*:
+The following example clones the "[Ethernet: UDP server](https://github.com/Infineon/mtb-example-ethernet-udp-server)" application with the desired name "EthernetUDPServer" configured for the *KIT_XMC72_EVK* BSP into the specified working directory, *C:/mtb_projects*:
 
    ```
    project-creator-cli --board-id KIT_XMC72_EVK --app-id mtb-example-ethernet-udp-server --user-app-name EthernetUDPServer --target-dir "C:/mtb_projects"
    ```
-
 
 The 'project-creator-cli' tool has the following arguments:
 
@@ -109,7 +107,6 @@ Argument | Description | Required/optional
 > **Note:** The project-creator-cli tool uses the `git clone` and `make getlibs` commands to fetch the repository and import the required libraries. For details, see the "Project creator tools" section of the [ModusToolbox&trade; tools package user guide](https://www.infineon.com/ModusToolboxUserGuide) (locally available at {ModusToolbox&trade; install directory}/docs_{version}/mtb_user_guide.pdf).
 
 </details>
-
 
 
 ### Open the project
@@ -201,38 +198,40 @@ For more details, see the [ModusToolbox&trade; tools package user guide](https:/
 
 5. After programming, the application starts automatically. Confirm that the text shown in **Figure 1** is displayed on the UART terminal. Note that the IP address assigned will differ based on the network you have connected to.
 
-  **Figure 1. Terminal output for UDP server post programming**
+   **Figure 1. Terminal output for UDP server post programming**
   
-  ![](images/udp-server-pre-connection.png)
+   ![](images/udp-server-pre-connection.png)
   
 6. Make a note of the IP address assigned to the kit (server) as shown in **Figure 1**.
 
-7. Open a command shell from the project directory and run the Python UDP client (udp_client.py) with the IP address from **Figure 1** as an argument through the option --hostname.
+7. Open a command shell from the project directory and run the Python UDP client (*udp_client.py*) with the IP address from **Figure 1** as an argument through the option --hostname.
 For example, if the IP address assigned to your kit is 192.168.1.8, enter the command as follows:
-```
-python udp_client.py --hostname 192.168.1.8
-```
-> **Note:** Ensure that the firewall settings of your computer allow access to the Python software so that it can communicate with the UDP server. For more details on enabling Python access, see this [community thread](https://community.infineon.com/t5/ModusToolbox-General/CE229112-Enable-Python-access-to-your-WiFi/td-p/214654).
+   ```
+   python udp_client.py --hostname 192.168.1.8
+   ```
+   > **Note:** Ensure that the firewall settings of your computer allow access to the Python software so that it can communicate with the UDP server. For more details on enabling Python access, see this [community thread](https://community.infineon.com/t5/ModusToolbox-General/CE229112-Enable-Python-access-to-your-WiFi/td-p/214654).
 
 8. Press the user button to send the LED ON/OFF command to the Python UDP client. Each user button press will issue the LED ON or LED OFF commands alternately. The client in turn sends an acknowledgment message back to the server. **Figure 2** and **Figure 3** show the UDP server and UDP client outputs respectively.
 
-  **Figure 2. UDP server output**
+   **Figure 2. UDP server output**
   
-  ![](images/udp-server-output.png)
+   ![](images/udp-server-output.png)
 
-  <br>
+   <br>
 
-  **Figure 3. UDP client output**
+   **Figure 3. UDP client output**
 
-  ![](images/udp-client-output.png)
+   ![](images/udp-client-output.png)
 
 
-> **Note:** 
-- The code example has been tested in a local LAN setup and in a simple private network such as a home network with VPN disabled. To test it in a complex network such as an enterprise network, contact your IT department.
-- Ensure that the port used for communication on your PC is an active port. If not, open the firewall port. To display all the blocked and active ports configured in the firewall on PC, open the command prompt (cmd for Windows) and enter the following command.
-```
-netsh firewall show state
-```
+   > **Note:** 
+
+   - The code example has been tested in a local LAN setup and in a simple private network, such as a home network with VPN disabled. To test it in a complex network, such as an enterprise network, contact your IT department.
+   - Ensure that the port used for communication on your PC is an active port. If not, open the firewall port. To display all the blocked and active ports configured in the firewall on the PC, open the command prompt (cmd for Windows) and enter the following command:
+
+     ```
+     netsh firewall show state
+     ```
 
 
 ## Debugging
@@ -259,29 +258,31 @@ Follow the instructions in your preferred IDE.
 
 This example executes an RTOS task: UDP server task.
 
-In this example, XMC7000 MCU is configured as a UDP server which establishes a connection with a UDP client. Once the connection completes successfully, the server allows the user to send LED ON/OFF command to the UDP client; the client responds by sending an acknowledgement message to the server.
+In this example, XMC7000 MCU is configured as a UDP server, which establishes a connection with a UDP client. Once the connection completes successfully, the server allows the user to send an LED ON/OFF command to the UDP client; the client responds by sending an acknowledgement message to the server.
 
 
 ### Resources and settings
 
 **Table 1. Application resources**
 
- Resource  |  Alias/object     |    Purpose
- :------- | :------------    | :------------
- BUTTON (BSP) | CYBSP_USER_BTN | User button to send LED ON/OFF commands to the UDP client
+Resource  |  Alias/object     |    Purpose
+:------- | :------------    | :------------
+BUTTON (BSP) | CYBSP_USER_BTN | User button to send LED ON/OFF commands to the UDP client
+
+<br>
 
 
 ## Related resources
 
 Resources | Links
 -----------|------------------
-Application notes | [AN234334](https://www.infineon.com/dgdl/Infineon-AN234334_Getting_started_with_XMC7000_MCU_on_ModusToolbox_software-ApplicationNotes-v01_00-EN.pdf?fileId=8ac78c8c8412f8d301842d32c5765bfd) – Getting started with XMC7000 MCU on ModusToolbox&trade; 
-Code examples  | [XMC7000 MCU examples](https://github.com/infineon?q=mtb-example%20XMC7000%20NOT%20Deprecated) on GitHub
-Device documentation | [XMC7000 MCU datasheets](https://www.infineon.com/cms/en/product/microcontroller/32-bit-industrial-microcontroller-based-on-arm-cortex-m/) <br> [XMC7000 technical reference manuals](https://www.infineon.com/cms/en/product/microcontroller/32-bit-industrial-microcontroller-based-on-arm-cortex-m/) 
+Application notes | [AN234334](https://www.infineon.com/dgdl/Infineon-Getting_started_with_XMC7000_MCU_on_ModusToolbox_software-ApplicationNotes-v06_00-EN.pdf?fileId=8ac78c8c850f4bee0185a53e84147437) – Getting started with XMC7000 MCU on ModusToolbox&trade; software
+Code examples | [Using ModusToolbox&trade;](https://github.com/Infineon/Code-Examples-for-ModusToolbox-Software) on GitHub
+Device documentation | [XMC7000 MCU documents](https://www.infineon.com/cms/en/product/microcontroller/32-bit-industrial-microcontroller-based-on-arm-cortex-m/32-bit-xmc7000-industrial-microcontroller-arm-cortex-m7/#!documents)
 Development kits | Select your kits from the [Evaluation board finder](https://www.infineon.com/cms/en/design-support/finder-selection-tools/product-finder/evaluation-board).
-Libraries on GitHub | [mtb-pdl-cat1](https://github.com/Infineon/mtb-pdl-cat1) – PSoC&trade; 6 Peripheral Driver Library (PDL) <br> [mtb-hal-cat1](https://github.com/Infineon/mtb-hal-cat1) – Hardware Abstraction Layer (HAL) library
+Libraries on GitHub | [mtb-pdl-cat1](https://github.com/Infineon/mtb-pdl-cat1) – Peripheral Driver Library (PDL) <br> [mtb-hal-cat1](https://github.com/Infineon/mtb-hal-cat1) – Hardware Abstraction Layer (HAL) library
 Middleware on GitHub  | [mcu-middleware](https://github.com/Infineon/modustoolbox-software) – Links to all MCU middleware
-Tools  | [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) – ModusToolbox&trade; software is a collection of easy-to-use libraries and tools enabling rapid development with Infineon MCUs for applications ranging from wireless and cloud-connected systems, edge AI/ML, embedded sense and control, to wired USB connectivity using PSoC&trade; Industrial/IoT MCUs, AIROC&trade; Wi-Fi and Bluetooth&reg; connectivity devices, XMC&trade; Industrial MCUs, and EZ-USB&trade;/EZ-PD&trade; wired connectivity controllers. ModusToolbox&trade; incorporates a comprehensive set of BSPs, HAL, libraries, configuration tools, and provides support for industry-standard IDEs to fast-track your embedded application development.
+Tools  | [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) – ModusToolbox&trade; software is a collection of easy-to-use libraries and tools enabling rapid development with Infineon MCUs for applications ranging from wireless and cloud-connected systems, edge AI/ML, embedded sense and control, to wired USB connectivity using PSOC&trade; Industrial/IoT MCUs, AIROC&trade; Wi-Fi and Bluetooth&reg; connectivity devices, XMC&trade; Industrial MCUs, and EZ-USB&trade;/EZ-PD&trade; wired connectivity controllers. ModusToolbox&trade; incorporates a comprehensive set of BSPs, HAL, libraries, configuration tools, and provides support for industry-standard IDEs to fast-track your embedded application development.
 
 <br>
 
@@ -290,15 +291,18 @@ Tools  | [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) – ModusT
 
 Infineon provides a wealth of data at [www.infineon.com](https://www.infineon.com) to help you select the right device, and quickly and effectively integrate it into your design.
 
+For XMC&trade; MCU devices, see [32-bit XMC&trade; industrial microcontroller based on Arm&reg; Cortex&reg;-M](https://www.infineon.com/cms/en/product/microcontroller/32-bit-industrial-microcontroller-based-on-arm-cortex-m/).
+
 
 ## Document history
 
-Document title: *CE235600* - *Ethernet: UDP server*
+Document title: *CE235600* – *Ethernet: UDP server*
 
  Version | Description of change
  ------- | ---------------------
  1.0.0   | New code example
  2.0.0   | Updated to support ModusToolbox&trade; v3.2 <br> Updated to support Ethernet Connection Manager (ECM) v2.0 <br> Added support for KIT_XMC71_EVK_LITE_V1
+ 2.1.0   | Enabled D-cache support for XMC7000 devices
 <br>
 
 
